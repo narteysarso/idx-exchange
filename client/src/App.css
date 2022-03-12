@@ -1,0 +1,24 @@
+@import  "~antd/dist/antd.css";
+
+
+html, body{
+  width: 100%;
+  min-height: 100%;
+}
+
+#root{
+  height: 100%;
+}
+
+.site-layout{
+  height: 100%;
+}
+
+
+.p1{
+  padding: 8vh 1vw;
+}
+
+.pt3{
+  padding-top: 2.5vw;
+}
