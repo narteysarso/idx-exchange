@@ -2,7 +2,6 @@ import contractAbi from "../contract/IDXExchangeContract.json";
 import { ethers, utils } from "ethers";
 
 const abi = contractAbi.abi;
-const CONTRACT_ADDRESS = "0xc0261db47d865ECba2AE705F1bAea1BADfdADF45";
 
 export function getContract() {
     if (!window.ethereum) {
@@ -13,7 +12,7 @@ export function getContract() {
 
     const signer = provider.getSigner();
 
-    const contract = new ethers.Contract(CONTRACT_ADDRESS, abi, signer);
+    const contract = new ethers.Contract(process.env.REACT_APP_CONTRACT_ADDRESS, abi, signer);
 
     //add event listener for wallet/network changes.
 
