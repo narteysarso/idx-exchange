@@ -7,6 +7,7 @@ export default function TransferOrder() {
 
     const {wallet} = useIDXContext();
     const {formData, setFormData, balance, setAccount, setSubmit, submit} = useTransfer();
+    const [form] = Form.useForm();
 
     useEffect(()=> {
         if(!wallet){
@@ -14,6 +15,18 @@ export default function TransferOrder() {
         }
         setAccount(wallet);
     }, [wallet]);
+
+    useEffect( ()=> {
+        if(submit){
+            return;
+        }
+        
+        form.setFieldsValue({
+            to: "",
+            amount: ""
+        });
+
+    }, [submit, form]);
 
     const handleSubmit = (values) => {
         setSubmit(true)
@@ -25,6 +38,7 @@ export default function TransferOrder() {
     return (
         <Form
             layout="vertical"
+            form={form}
             onFinish={handleSubmit}
             onValuesChange={handleValuesChange}>
 
@@ -49,7 +63,7 @@ export default function TransferOrder() {
                 <InputNumber size="large" step={0.00000001}  min={0.00000001} style={{ width: '100%' }} />
             </Form.Item>
             <Form.Item
-                label="To"
+                label="Wallet Address"
                 name="to"
                 rules={[
                     {

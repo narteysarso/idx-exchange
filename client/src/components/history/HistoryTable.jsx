@@ -1,8 +1,6 @@
 import { Table } from "antd";
 
-
-
-export default function OrdersTable({ datasource }) {
+export default function HistoryTable({ datasource }) {
 
     
     const columns = [

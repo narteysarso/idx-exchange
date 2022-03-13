@@ -9,8 +9,8 @@ export function useTransfer() {
     const [balance, setBalance] = useState(0);
     const [error, setError] = useState(null);
 
-    useEffect(()=> {
-        if(!account){
+    useEffect(() => {
+        if (!account) {
             return;
         }
 
@@ -21,24 +21,26 @@ export function useTransfer() {
     }, [account]);
 
     useEffect(() => {
-        console.log(submit);
-        if(!submit){
-            return;
-        }
 
-        if(!formData.to || !formData.amount){
-            return;
-        }
+        (async () => {
+            try {
+                if (!submit) {
+                    return;
+                }
 
-        
-        (async() => {
-            const result = await transferToken(formData.to, formData.amount.toFixed(8));
-            return result;
+                if (!formData.to || !formData.amount) {
+                    return;
+                }
+                const result = await transferToken(formData.to, formData.amount.toFixed(8));
+                return result;
+            } catch (error) {
+                setError(error)
+            } finally {
+                setSubmit(false);
+            }
         })();
-
-        setSubmit(false);
 
     }, [submit]);
 
-    return {formData, balance, setFormData, setAccount, setSubmit, submit, error};
+    return { formData, balance, setFormData, setAccount, setSubmit, submit, error };
 }

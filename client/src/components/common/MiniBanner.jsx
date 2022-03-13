@@ -1,12 +1,13 @@
 
 import { DollarCircleOutlined, GlobalOutlined, SafetyOutlined } from "@ant-design/icons";
-import { Col, Row, Space, Typography } from "antd";
+import { Col, Row, Space, Tag, Typography } from "antd";
 
 export default function MiniBanner({title, ...props}) {
 
     return (
         <Row>
             <Col span={24} style={{ padding: "5.5vh 4vw" }}>
+            <Tag color={"red"}>This program runs on the Rinkeby Test Newtork!!!</Tag>
                 <Typography.Title>{title}</Typography.Title>
                 <Typography.Paragraph>
                     <Space size="large">

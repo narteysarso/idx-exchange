@@ -1,5 +1,6 @@
 
 import { Button, Card, Col, Row} from "antd";
+import { Link } from "react-router-dom";
 import MiniBanner from "../common/MiniBanner";
 import TransferOrder from "../forms/TransferOrder";
 
@@ -13,7 +14,7 @@ export default function Transfer() {
             <Col span={24}>
                 <Card
                     title=""
-                    extra={<Button type="primary">Orders</Button>}
+                    extra={<Link to={"/history"}><Button type="primary">History</Button></Link>}
                 >
                     <Row justify="center">
                         <Col xs={24} sm={18} md={12}>

@@ -2,7 +2,7 @@ import { Button, Col, DatePicker, Form, Row, Select, Space } from "antd";
 
 const {RangePicker} = DatePicker;
 
-export default function OrderSearch({setFilter}){
+export default function HistorySearch({setFilter}){
 
     const handleSubmit = () => {
 

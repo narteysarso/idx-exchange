@@ -1,6 +1,6 @@
 import { Button, Card, Col, Dropdown, Menu, Row, Tag, Tooltip, Typography } from "antd";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useIDXContext } from "../hooks/useIDX";
 
 
@@ -14,6 +14,7 @@ const NotYetSupported = ({ title, color, ...props }) => {
 }
 
 const PurchaseOptions = () => {
+    
     return (
         <Card title="Pay with" style={{ padding: '1vw' }}>
 
@@ -36,6 +37,7 @@ const PurchaseOptions = () => {
     )
 }
 export function Navbar() {
+    const {pathname} = useLocation();
     const {wallet}= useIDXContext();
     return (
         <>
@@ -48,22 +50,20 @@ export function Navbar() {
                 </Col>
                 <Col span={16}>
                     <Row justify="center">
-                        <Menu theme="dark" mode="horizontal" style={{minWidth: "100%", textAlign: "center"}}>
-                            <Menu.Item key="1">
+                        <Menu theme="dark" selectedKeys={[pathname]} mode="horizontal" style={{minWidth: "100%", textAlign: "center"}}>
+                            <Menu.Item key="/home">
                                 <Link to="/home">Home</Link>
                             </Menu.Item>
-                            <Menu.Item key="3">
-                                <Link to="/orders">Orders</Link>
+                            <Menu.Item key="/history">
+                                <Link to="/history">History</Link>
                             </Menu.Item>
-                            <Menu.Item key="2">
+                            <Menu.Item key="/trade">
                                 <Link to="/trade">Trade</Link>
                             </Menu.Item>
-                            <Menu.Item key="4">
+                            <Menu.Item key="/transfers">
                                 <Link to="/transfers">Transfer</Link>
                             </Menu.Item>
-                            <Menu.Item key="5">
-                                <Link to="/about-us">About Us</Link>
-                            </Menu.Item>
+                            
                         </Menu>
                     </Row>
                 </Col>

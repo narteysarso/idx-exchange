@@ -1,4 +1,4 @@
-import { Col, Row, Typography } from "antd";
+import { Col, Row, Tag, Typography } from "antd";
 import { useIDXContext } from "../../hooks/useIDX";
 import BuyToken from "../common/BuyToken";
 import ConnectWallet from "../common/ConnectWallet";
@@ -10,6 +10,7 @@ export default function Home() {
             <Col xs={24}>
                 <Row justify="center" style={{padding: "5vw 12vw" }}>
                     <Col xs={24} md={18} >
+                    <Tag color={"red"}>This program runs on the Rinkeby Test Newtork!!!</Tag>
                         <Typography.Title level={1} style={{fontSize: '4rem'}}>Trade IDX token and Ethereum. No Registration. No Hassle</Typography.Title>
                     </Col>
                     <Col xs={24} md={18} >

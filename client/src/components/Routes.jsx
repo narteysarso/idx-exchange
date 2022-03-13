@@ -1,7 +1,7 @@
 import {Route, Routes} from "react-router-dom";
 import Home from "../components/pages/Home"
 import PageNotFound from "./pages/404";
-import Orders from "./pages/Orders";
+import History from "./pages/History";
 import Trade from "./pages/Trade";
 import Transfer from "./pages/Transfer";
 export default function Router(){
@@ -14,8 +14,8 @@ export default function Router(){
             <Route path="/trade" >
                 <Route index element={<Trade />} />
             </Route>
-            <Route path="/orders" >
-                <Route index  element={<Orders />} />
+            <Route path="/history" >
+                <Route index  element={<History />} />
             </Route>
             <Route path="/transfers" >
                 <Route index  element={<Transfer />} />
